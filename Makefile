@@ -14,3 +14,6 @@ makemigrations:
 
 migrate:
 	poetry run python manage.py migrate
+
+all:
+	make install && make run
