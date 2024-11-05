@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Page, Component, Account, Incident, SystemMetric
+from .models import Page, Component, Account, Incident, SystemMetric, Subscriber
 from apps.userauth.serializers import UserSerializer
 
 class AccountSerializer(serializers.ModelSerializer):
@@ -41,4 +41,9 @@ class IncidentSerializer(serializers.ModelSerializer):
 class SystemMetricSerializer(serializers.ModelSerializer):
     class Meta:
         model = SystemMetric
+        fields = '__all__'
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber
         fields = '__all__'

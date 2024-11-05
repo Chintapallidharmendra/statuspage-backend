@@ -8,7 +8,7 @@ class Account(models.Model):
 class Page(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    url = models.URLField()
+    url = models.URLField(null=True, blank=True)
     account = models.ForeignKey(Account, related_name="pages", on_delete=models.CASCADE)
     is_private = models.BooleanField(default=False)
 
@@ -42,5 +42,6 @@ class Subscriber(models.Model):
 class SystemMetric(models.Model):
     name = models.CharField(max_length=100)
     value = models.FloatField()
+    unit = models.CharField(max_length=20, default="", blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     page = models.ForeignKey(Page, related_name="metrics", on_delete=models.CASCADE)
